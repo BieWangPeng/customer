@@ -1,0 +1,205 @@
+
+<br />
+
+    <div *ngFor="let customer of customers;  let i = index" >
+
+<p></p>
+    <div id="panel-group" class="panel-default">
+  <div class="panel panel-default"  (click) = "current = i">
+    <div class="panel-heading" (click) = "current = current==1?0:1" style="padding: 10px 10px 0px 10px;background-color:#00BBFF; color:#FFFFFF;">
+      <span class="inputTitle">Customer : {{customer.customerCode}}  &nbsp; &nbsp;Customer Name : {{customer.customerName}}  &nbsp; &nbsp; Balance : {{customer.balance}}</span>
+    </div>
+     <div id="collapse1" class="panel-collapse" [class.collapse]='current != i'>
+      
+
+
+<div class="customerMain">
+  <div class="row" style="padding:10px 10px 10px 10px;" >
+    <div class="col-md-4 input-group " >
+          <span class="input-group-addon inputTitle">Customer</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.customerCode"/>             
+    </div>
+    <div class="col-md-4 input-group">
+          <span class="input-group-addon inputTitle">Customer Name</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.customerName"/>             
+    </div>
+    <div class="col-md-4 input-group">
+          <span class="input-group-addon inputTitle">Short Name</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.customerShortName"/>             
+    </div>
+  </div>
+  <div class="row" style="padding:0px 10px 10px 10px;">
+    <div class="col-md-4 input-group">
+          <span class="input-group-addon inputTitle">Address1</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.address1"/>             
+    </div>
+    <div class="col-md-4 input-group">
+          <span class="input-group-addon inputTitle">Address2</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.address2"/>             
+    </div>
+    <div class="col-md-4 input-group">
+          <span class="input-group-addon inputTitle">Address3</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.address3"/>             
+    </div>
+  </div>
+  <div class="row" style="padding:0px 10px 10px 10px;">
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">City</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.city"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">State</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.state"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Code</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.code"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Country</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.country"/>             
+    </div>
+ </div>
+
+ <!--<div class="row" style="padding:0px 10px 10px 10px;">
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Phone</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.phone"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Email</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.email"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Business Category</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.businessCategory"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Active Flag</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.activeFlag"/>             
+    </div>
+ </div>-->
+
+ <!--<div class="row" style="padding:0px 10px 10px 10px;">
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Account Name</span>
+          <input id="orderNoInput" type="text" class="form-control" [(ngModel)]="customer.accountName"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Frozen Flag</span>
+          <input id="orderNoInput" type="text"  class="form-control" [(ngModel)]="customer.frozenFlag"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Transaction Type</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.transactionType"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Credit Limit</span>
+          <input id="orderNoInput" type="text" class="form-control" [(ngModel)]="customer.creditLimit"/>             
+    </div>
+ </div>-->
+
+ <div class="row" style="padding:0px 10px 10px 10px;">
+
+
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Recharge</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+          <label for="dateOfBirth">Recharge Date</label>
+          <div class="input-group">
+            <input id="dateOfRecharge" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" [(ngModel)]="customer.rechargeDate">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
+              <fa  name="calendar" animation="alt"></fa>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="recharge">Recharge Money</label>
+          <div class="input-group">
+            <input class="form-control" id="recharge" placeholder="Input Recharge Money"  [(ngModel)]="customer.recharge">
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c(customer)">Save</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentUpload let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Upload Condition</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form name="form1" method="post" enctype="multipart/form-data" action="api/upload">
+        <div class="form-group">
+          <div >
+            <input type="file"  ng2FileSelect [uploader]="uploader" />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c(uploader)">Confirm</button>
+    </div>
+</ng-template>
+
+
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Customer Type</span>
+          <input id="orderNoInput" type="text" disabled="true" class="form-control" [(ngModel)]="customer.customerType"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Balance</span>
+          <input id="orderNoInput" type="number" disabled="true" class="form-control" [(ngModel)]="customer.balance"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Currency</span>
+          <input id="orderNoInput" type="text"  disabled="true" class="form-control" [(ngModel)]="customer.currency"/>             
+    </div>
+    <div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Credit Limit</span>
+          <input id="orderNoInput" type="text" class="form-control" [(ngModel)]="customer.creditLimit"/>             
+    </div>
+    <!--<div class="col-md-3 input-group">
+          <span class="input-group-addon inputTitle">Recharge</span>
+          <input id="orderNoInput" type="number" class="form-control" [(ngModel)]="recharge"/>             
+    </div>-->
+ </div>
+
+<hr style="border-bottom:1px solid #000；"/>
+
+  <div class="row" style="padding:0px 10px 10px 10px;">
+     <div class="col-md-4 input-group">
+           <button class="btn btn-outline-success" style="width:100%" (click)="updateCustomer(customer)">Update</button>       
+    </div>
+     <div class="col-md-4 input-group">
+           <button class="btn btn-outline-success" style="width:100%" (click)="openUpdateModel(content,customer)">Recharge</button>     
+<!--            <app-update-modal style="width:100%"></app-update-modal>         
+ -->    </div>
+     <div class="col-md-4 input-group">
+           <button class="btn btn-outline-success" style="width:100%" (click)="openUploadModel(contentUpload,customer)">Upload Condition</button>            
+    </div>
+ </div>
+
+
+ </div>
+ <p><p>
+
+     </div>
+  </div>
+</div>
+
+</div>
+

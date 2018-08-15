@@ -1,0 +1,9 @@
+export class Customer {
+  id: number;
+  customerCode: string;
+  customerName: string;
+  serviceType: string;
+  balance: number;
+  currency: string;
+  vigilance: number
+}

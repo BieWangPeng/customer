@@ -1,0 +1,9 @@
+<div class="search" style="padding-top: 100px;">
+
+    <div class="form-inline" style="width:100%">
+          <input #criteriaCustomer class="form-control " style="width:80%" type="text" placeholder="Search Customer" aria-label="Search">
+          <button class="btn btn-outline-success" (click)="searchCustomer(criteriaCustomer.value); criteriaCustomer.value=''" style="width:20%" >Search</button>
+    </div>
+    <!-- <span ([ngModel])="test">Search: {{test}}</span> -->
+    <app-customer-list *ngIf="customers"[customers]="customers"></app-customer-list>
+</div>

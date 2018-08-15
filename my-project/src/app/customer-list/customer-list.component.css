@@ -1,0 +1,12 @@
+.customerMain {
+  border-style: solid;
+  border-top-width: 20px;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-left-width: 5px; 
+  border-color:#00BBFF;
+}
+
+.inputTitle{
+	font-weight:bold;
+}
